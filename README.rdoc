@@ -5,8 +5,6 @@ The useragent gem provides a few utilities related to browser detection. It has 
 1. The "somewhat less hacky CSS browser targetting"
 2. Mobile / Desktop / iPhone / Blackberry detection
 
-Details:
-
 = 1. The "somewhat less hacky CSS browser targetting"
 
 Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see http://www.quirksmode.org/js/support.html. However sometimes there is no choice - especially under time constraints. 
