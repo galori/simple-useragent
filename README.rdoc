@@ -7,45 +7,37 @@ The useragent gem provides a few utilities related to browser detection. It has 
 
 Details:
 
-1. The "somewhat less hacky CSS browser targetting"
+= 1. The "somewhat less hacky CSS browser targetting"
 
 Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see http://www.quirksmode.org/js/support.html. However sometimes there is no choice - especially under time constraints. 
 
 Add to your body tag:
 
-<code>
-<body class='<%=UserAgent::browser(request)%>'>
-</code>
+   <body class='<%=UserAgent::browser(request)%>'>
 
 This will add one of (ie6 | ie7 | ie8 | firefox | safari | chrome) as a class to your body tag.  Then, instead of using the classic browser specific CSS hacks such as:
 
-<code>
-/* IE7 */
-*:first-child+html #content { 
-  height: 500px;
-}
-</code>
+   /* IE7 */
+   *:first-child+html #content { 
+    height: 500px;
+   }
 
 now you can do this:
 
-<code>
-.ie7 #content { 
-  height: 500px;
-}
-</code>
+   .ie7 #content { 
+     height: 500px;
+   }
 
 Which is both cleaner, and self documenting.
 
-2. Mobile / Desktop / iPhone / Blackberry detection
+= 2. Mobile / Desktop / iPhone / Blackberry detection
 
 The following new methods are available to you:
 
-<code>
-UserAgent::is_desktop?
-UserAgent::is_mobile?
-UserAgent::is_blackberry?
-UserAgent::is_iphone?
-</code>
+   UserAgent::is_desktop?
+   UserAgent::is_mobile?
+   UserAgent::is_blackberry?
+   UserAgent::is_iphone?
 
 The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057
 
