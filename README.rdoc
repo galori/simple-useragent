@@ -1,0 +1,46 @@
+= simple-useragent
+
+The useragent gem provides a few utilities related to browser detection. It has two main uses, described below:
+
+1. The "somewhat less hacky CSS browser targetting"
+2. Mobile / Desktop / iPhone / Blackberry detection
+
+Details:
+
+1. The "somewhat less hacky CSS browser targetting"
+
+Admittedly targeting CSS to a specific browser is a bad practice that should generally be avoided. For more details about why browser detection in general is a bad idea, see http://www.quirksmode.org/js/support.html. However sometimes there is no choice - especially under time constraints. 
+
+Add to your body tag:
+
+<body class='<%=UserAgent::browser(request)%>'>
+  
+This will add one of (ie6 | ie7 | ie8 | firefox | safari | chrome) as a class to your body tag.  Then, instead of using the classic browser specific CSS hacks such as:
+
+/* IE7 */
+*:first-child+html #content { 
+  height: 500px;
+}
+
+now you can do this:
+
+.ie7 #content { 
+  height: 500px;
+}
+
+Which is both cleaner, and self documenting.
+
+2. Mobile / Desktop / iPhone / Blackberry detection
+
+The following new methods are available to you:
+
+UserAgent::is_desktop?
+UserAgent::is_mobile?
+UserAgent::is_blackberry?
+UserAgent::is_iphone?
+
+The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057
+
+The theory is that since there are a lot more mobile user agents than there are desktop user agents (hundreds or even thousands) - we detect the known list of desktop user agents, and if its not one of those we assume that it is mobile. It works surprisingly well in the vast majority of cases. So far I've only seen it fail with spoofed or malformed user agents.
+
+Copyright (c) 2009 Gal Steinitz. See LICENSE for details.
