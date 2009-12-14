@@ -13,20 +13,26 @@ Admittedly targeting CSS to a specific browser is a bad practice that should gen
 
 Add to your body tag:
 
+<code>
 <body class='<%=UserAgent::browser(request)%>'>
-  
+</code>
+
 This will add one of (ie6 | ie7 | ie8 | firefox | safari | chrome) as a class to your body tag.  Then, instead of using the classic browser specific CSS hacks such as:
 
+<code>
 /* IE7 */
 *:first-child+html #content { 
   height: 500px;
 }
+</code>
 
 now you can do this:
 
+<code>
 .ie7 #content { 
   height: 500px;
 }
+</code>
 
 Which is both cleaner, and self documenting.
 
@@ -34,10 +40,12 @@ Which is both cleaner, and self documenting.
 
 The following new methods are available to you:
 
+<code>
 UserAgent::is_desktop?
 UserAgent::is_mobile?
 UserAgent::is_blackberry?
 UserAgent::is_iphone?
+</code>
 
 The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057
 
