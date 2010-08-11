@@ -2,7 +2,7 @@
 class SimpleUserAgent
 
   # Some mobile browsers which look like desktop browsers.
-  MOBILE = /(iphone|ipod|blackberry|android|palm|windows\s+ce)/i
+  MOBILE = /(ipad|iphone|ipod|blackberry|android|palm|windows\s+ce)/i
   DESKTOP = /(windows|linux|os\s+[x9]|solaris|bsd)/i
   BOT = /(spider|crawl|slurp|bot)/i
 
@@ -20,14 +20,19 @@ class SimpleUserAgent
   
   def self.is_iphone?(request_or_user_agent)
     user_agent = get_user_agent(request_or_user_agent)
-    !!(user_agent =~ /(Mobile\/.+Safari)/)
+    !!(user_agent =~ /iPhone.+Mobile\/.+Safari/)
   end
-
+  
+  def self.is_ipad?(request_or_user_agent)
+    user_agent = get_user_agent(request_or_user_agent)
+    !!(user_agent =~ /iPad.+Mobile\/.+Safari/)
+  end
+  
   def self.is_blackberry?(request_or_user_agent)
     user_agent = get_user_agent(request_or_user_agent)
     !!(user_agent =~ /BlackBerry/)
   end
-
+  
   # Some mobile browsers put the User-Agent in a HTTP-X header
   def self.get_user_agent(request_or_user_agent)
     return request_or_user_agent if request_or_user_agent.kind_of? String
