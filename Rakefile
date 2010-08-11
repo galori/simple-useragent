@@ -11,7 +11,7 @@ begin
     The useragent gem provides a few utilities related to browser detection. It has two main uses, described below:
 
     1. The "somewhat less hacky CSS browser targetting"
-    2. Mobile / Desktop / iPhone / Blackberry detection
+    2. Mobile / Desktop / iPhone / iPad / Blackberry detection
     %
     gem.email = "gal@steinitz.com"
     gem.homepage = "http://thespottyblog.wordpress.com"

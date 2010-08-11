@@ -3,7 +3,7 @@
 The useragent gem provides a few utilities related to browser detection. It has two main uses, described below:
 
 1. The "somewhat less hacky CSS browser targetting"
-2. Mobile / Desktop / iPhone / Blackberry detection
+2. Mobile / Desktop / iPhone / iPad / Blackberry detection
 
 = 1. The "somewhat less hacky CSS browser targetting"
 
@@ -28,7 +28,7 @@ now you can do this:
 
 Which is both cleaner, and self documenting.
 
-= 2. Mobile / Desktop / iPhone / Blackberry detection
+= 2. Mobile / Desktop / iPhone / iPad / Blackberry detection
 
 The following new methods are available to you:
 
@@ -36,6 +36,7 @@ The following new methods are available to you:
    SimpleUserAgent::is_mobile?
    SimpleUserAgent::is_blackberry?
    SimpleUserAgent::is_iphone?
+   SimpleUserAgent::is_ipad?
 
 The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057
 
