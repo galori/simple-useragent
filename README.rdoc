@@ -36,6 +36,8 @@ The following new methods are available to you:
    SimpleUserAgent::is_mobile?
    SimpleUserAgent::is_blackberry?
    SimpleUserAgent::is_iphone?
+   SimpleUserAgent::is_apple?
+   SimpleUserAgent::is_ie?   
 
 The is_mobile? and is_desktop? methods are using a minimalistic approach, converted from the python script here: http://gist.github.com/88057
 
