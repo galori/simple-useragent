@@ -4,22 +4,28 @@ SAMPLE_BLACKBERRY_USER_AGENT_STRING = "BlackBerry9630/4.7.1.40 Profile/MIDP-2.0 
 
 describe "SimpleUserAgent" do
   it "correctly detects an iphone user agent" do
-    iphone = 
-      %%
-        Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) 
-        AppleWebKit/420+ (KHTML, like Gecko) Version/3.0
-        Mobile/1A543a Safari/419.3
-      %    
+    iphone = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16"
     SimpleUserAgent::is_iphone?(iphone).should == true
+    SimpleUserAgent::is_ipad?(iphone).should == false
     SimpleUserAgent::is_blackberry?(iphone).should == false
     SimpleUserAgent::is_mobile?(iphone).should == true
     SimpleUserAgent::is_desktop?(iphone).should == false
+  end
+  
+  it "correctly detects an ipad user agent" do
+    ipad = "Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10"
+    SimpleUserAgent::is_ipad?(ipad).should == true
+    SimpleUserAgent::is_iphone?(ipad).should == false
+    SimpleUserAgent::is_blackberry?(ipad).should == false
+    SimpleUserAgent::is_mobile?(ipad).should == true
+    SimpleUserAgent::is_desktop?(ipad).should == false
   end
 
   it "correctly detects a blackberry user agent" do
     blackberry = "BlackBerry9630/4.7.1.40 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/105"
     SimpleUserAgent::is_blackberry?(blackberry).should == true
     SimpleUserAgent::is_iphone?(blackberry).should == false
+    SimpleUserAgent::is_ipad?(blackberry).should == false
     SimpleUserAgent::is_mobile?(blackberry).should == true
     SimpleUserAgent::is_desktop?(blackberry).should == false
   end

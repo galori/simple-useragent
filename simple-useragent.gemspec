@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
     The useragent gem provides a few utilities related to browser detection. It has two main uses, described below:
 
     1. The "somewhat less hacky CSS browser targetting"
-    2. Mobile / Desktop / iPhone / Blackberry detection
+    2. Mobile / Desktop / iPhone / iPad / Blackberry detection
     }
   s.email = %q{gal@steinitz.com}
   s.extra_rdoc_files = [
