@@ -56,6 +56,7 @@ class SimpleUserAgent
     return 'firefox' if user_agent =~ /Firefox/
     return 'chrome' if user_agent =~ /Chrome/
     return 'safari' if user_agent =~ /Safari/
+    return 'ie9' if user_agent =~ /MSIE 9/
     return 'ie8' if user_agent =~ /MSIE 8/
     return 'ie7' if user_agent =~ /MSIE 7/
     return 'ie6' if user_agent =~ /MSIE 6/
