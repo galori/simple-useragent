@@ -72,4 +72,11 @@ describe "SimpleUserAgent" do
     SimpleUserAgent::browser(ie8).should == 'ie8'
   end
 
+  it "correctly detects a bot user agent" do
+    bot = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
+    SimpleUserAgent::is_desktop?(bot).should == true
+    SimpleUserAgent::is_mobile?(bot).should == false
+    SimpleUserAgent::is_bot?(bot).should == true
+  end
+
 end

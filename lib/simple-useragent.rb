@@ -37,12 +37,17 @@ class SimpleUserAgent
     user_agent = get_user_agent(request_or_user_agent)
     !!(user_agent =~ /(Mobile\/.+Safari)/) || !!(user_agent =~ /OS\s+[X9]/)
   end
-  
+
+  def self.is_bot?(request_or_user_agent)
+    user_agent = get_user_agent(request_or_user_agent)
+    !!(user_agent =~ BOT)
+  end
 
   def self.is_ie?(request_or_user_agent)
     user_agent = get_user_agent(request_or_user_agent)
     !!(user_agent =~ /MSIE/)
   end
+
   # Some mobile browsers put the User-Agent in a HTTP-X header
   def self.get_user_agent(request_or_user_agent)
     return request_or_user_agent if request_or_user_agent.kind_of? String
